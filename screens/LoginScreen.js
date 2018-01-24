@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet , Button} from 'react-native';
+import { View,Image, Text, StyleSheet , Button} from 'react-native';
 
 
 class LoginScreen extends React.Component {
+    static navigationOptions = {
+        drawerIcon:(
+            <Image 
+            source={require('../assets/splash.jpg')} 
+            style={{height: 24, width: 24}} />
+        )
+    }
     render() {
         return (
         <View>
