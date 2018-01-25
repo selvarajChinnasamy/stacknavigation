@@ -1,8 +1,9 @@
 import React from 'react';
 import { StyleSheet, Image, Text, View, Button } from 'react-native';
 import { StackNavigator } from 'react-navigation'
-import HomeScreenTabNavigator from './screens/HomeScreen';
+import HomeScreen from './screens/HomeScreen';
 import LoginScreen from './screens/LoginScreen';
+import ProfileScreen from './screens/Profile';
 import { DrawerNavigator, DrawerItems } from 'react-navigation';
 import Settings from './screens/SettingsScreen';
 import { Icon, Body, Container, Header, Content } from 'native-base';
@@ -23,27 +24,20 @@ export default class App extends React.Component {
 
 const AppDrawerNavigator = DrawerNavigator({
   LoginScreen: { screen: LoginScreen },
-  HomeScreen: { screen: HomeScreenTabNavigator },
+  HomeScreen: { screen: HomeScreen },
   Settings: { screen: Settings },
 }, {
-  contentComponent: props => 
-  <View>
-  <Image 
-  style={styles.drawerImage}
-  source={require('./assets/splash.jpg')} />
-  <DrawerItems {...props} />
-  </View>
-});
+    contentComponent: props =>
+      <View >
+        <View style={{ alignItems: 'center', }}>
+          <Image
+            style={styles.drawerImage}
+            source={require('./assets/splash.jpg')} />
+        </View>
+        <DrawerItems {...props} />
+      </View>
+  });
 
-const CustomDrawerContentComponent = (props) => (
-  <Container>
-    <Header>
-      <Body>
-        <Text>ytftyfv</Text>
-      </Body>
-    </Header>
-  </Container>
-)
 
 const styles = StyleSheet.create({
   container: {
@@ -55,8 +49,6 @@ const styles = StyleSheet.create({
   drawerImage: {
     height: 150,
     width: 150,
-    alignItems: 'center',
-    justifyContent: 'center',
     borderRadius: 75,
   }
 });
